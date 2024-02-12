@@ -73,9 +73,7 @@ PngToy._iTXt = function(host) {
 		}
 		else if (!result.hasCompression) {
 			// convert byte-buffer to string
-			o = "";
-			for(i = 0; i < txtBuff.length; i++) o += String.fromCharCode(txtBuff[i]);
-			result.text = o;
+			result.text = new TextDecoder().decode(txtBuff);
 		}
 		else {
 			if (allowInvalid) {

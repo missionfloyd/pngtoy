@@ -33,11 +33,7 @@ PngToy._tEXt = function(host) {
 
 		// convert byte-buffer to string
 		txtBuff = new Uint8Array(view.buffer, pos, chunk.length - (pos - chunk.offset));
-		o = "";
-
-		for(i = 0; i < txtBuff.length; i++) o += String.fromCharCode(txtBuff[i]);
-
-		result.text = o;
+		result.text = new TextDecoder().decode(txtBuff);
 
 		lst.push(result);
 
